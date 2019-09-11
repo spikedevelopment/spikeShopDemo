@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import  logo from '../logo.svg'
+import {ButtonContainer} from './UI/Button'
+
+import styled from 'styled-components'
 
 
 export default class ProductList extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-sm bg-primary navbar-dark px-sm-5">
+            <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
                 <Link to="/">
                     <img src={logo} alt="StoreLogo" className="navbar-brand" />
                 </Link>
@@ -18,9 +21,22 @@ export default class ProductList extends Component {
                     </li>    
                 </ul>
                 <Link to="/cart" className="ml-auto">
-                    <button><i className="fas fa-cart-plus mr-2" />Add to cart</button>
+                    <ButtonContainer>
+                        <i className="fas fa-cart-plus mr-2" />
+                        Add to cart
+                    </ButtonContainer>
                 </Link>
-            </nav>
+            </NavWrapper>
         )
     }
 }
+
+const NavWrapper = styled.nav`
+    background: var(--mainBlue);
+    .nav-link {
+        color: var(--mainWhite) !important;
+        font-size:1.3rem;
+        text-transform: capitalize;
+    }
+`
+
